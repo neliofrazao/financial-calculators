@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
     "lint": "eslint src --cache && echo \"eslint: no lint errors\"",
     "lint:fix": "eslint src --cache --fix && echo \"eslint: no lint errors\""
   },
@@ -11,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "babel-core": "^6.26.3",
     "cypress": "^3.8.3",
