@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "npm run test -- --coverage --watchAll=false",
     "lint": "eslint src --cache && echo \"eslint: no lint errors\"",
     "lint:fix": "eslint src --cache --fix && echo \"eslint: no lint errors\""
   },
