@@ -1,5 +1,5 @@
 module.exports = {
-  ...require('./test/jest-common'),
+  testEnvironment: 'jest-environment-jsdom',
   collectCoverageFrom: [
     '**/src/**/*.js',
     '!**/__tests__/**',
@@ -14,5 +14,4 @@ module.exports = {
       lines: 15,
     },
   },
-  projects: ['./test/jest.lint.js', './test/jest.client.js', './test/jest.server.js', './server'],
 };
