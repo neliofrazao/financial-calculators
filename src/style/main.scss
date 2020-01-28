@@ -1,3 +1,8 @@
+//this stylesheet use CSS Architecture SMACSS (http://smacss.com/)
 @import
+  "resets/normalize.scss",
   "variables",
-  "resets/normalize.scss"
+  "mixins",
+  "base.scss",
+  "module.scss",
+  "layout.scss"

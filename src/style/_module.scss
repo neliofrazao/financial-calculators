@@ -1,0 +1,5 @@
+.paper{
+  @include border-radius(1%);
+  background: $white; 
+  border: 1px solid $graphite_25
+}

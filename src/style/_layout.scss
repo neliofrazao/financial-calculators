@@ -1,0 +1,25 @@
+.container {
+  margin: 60px;
+  width: 610px ;
+  min-height: 390px;
+  display: flex;
+  @extend .paper;
+}
+
+.container-columns { box-sizing: border-box }
+
+.container-form {
+  width: 455px;
+  padding: 27px 0 0 55px;  
+  @extend .container-columns;
+  .title-container-receipts{
+    font-size: 1.5em;
+  }
+}
+
+.container-receipts {
+  width: 286px;
+  box-sizing: border-box;
+  background: #f6f8f9; 
+  @extend .container-columns
+}
