@@ -4,3 +4,14 @@
   border: 1px solid $graphite_25;
   overflow: hidden;
 }
+
+.receipts-list {
+  padding: 0;
+  li { 
+    list-style-type: none;
+    font-size: 1.2em;
+    color: $light_blue;
+    @include line-height(31)
+  }
+  .receipts-list-value{ font-weight: bold }
+}
