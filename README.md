@@ -30,6 +30,7 @@
 
 * [HTML5](https://www.w3c.br/pub/Cursos/CursoHTML5/html5-web.pdf)
 * [SASS](https://sass-lang.com/)
+* [JAVASCRIPT](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [WEBPACK](https://webpack.js.org/)
 * [JEST](https://jestjs.io/)
 
