@@ -1,0 +1,38 @@
+/**
+ * Mixins for animate css
+ */
+@mixin animate($property, $duration, $function) {
+  -webkit-transition: $property $duration $function;
+     -moz-transition: $property $duration $function;
+      -ms-transition: $property $duration $function;
+       -o-transition: $property $duration $function;
+          transition: $property $duration $function;
+}
+
+/**
+ * Mixin for border round
+ */
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+          border-radius: $radius;
+    background-clip: padding-box;
+}
+
+/**
+ * Line Height
+ */
+@mixin line-height($heightValue: 12 ){
+  line-height: $heightValue + px; //fallback for old browsers
+  line-height: (0.125 * $heightValue) + rem;
+}
+
+/**
+ * Absolute Positioned
+ */
+@mixin abs-pos ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left; 
+  position: absolute;
+}

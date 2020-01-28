@@ -4,11 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,700i&display=swap" rel="stylesheet">
     <title>Financial Calculator</title>
 </head>
 <body>
   <main>
-    Financial Calculator
+    <div class="container">
+      <div class="container-form">
+        <h1 class="title-container-receipts">Simule sua Antecipação</h1>
+        <form class="simulation-form">
+          <div class="form-control required">
+            <label for="sale">Informe o valor da venda</label>
+            <input type="text" id="sale" />
+          </div>
+
+          <div class="form-control required">
+            <label for="split-value">Em quantas parcelas</label>
+            <input type="text" id="split-value" />
+            <small>Máximo de 12 Parcelas</small>
+          </div>
+          <div class="form-control required">
+            <label for="mdr">Informe o percentual de MDR</label>
+            <input type="mdr" id="mdr" />
+          </div>
+        </form>
+      </div>
+      <div class="container-receipts">
+        <h2 class="title-container-receipts">Você Receberá</h2>
+        <ul class="receipts-list">
+          <li>Amanhã <span class="receipts-list-value">R$ 0,00</span></li>
+          <li>Em 15 dias <span class="receipts-list-value">R$ 0,00</span></li>
+          <li>Em 30 dias <span class="receipts-list-value">R$ 0,00</span></li>
+          <li>Em 90 dias <span class="receipts-list-value">R$ 0,00</span></li>
+        </ul>
+      </div>
+    </div>
   </main>
 </body>
 </html>
