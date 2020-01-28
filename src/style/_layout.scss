@@ -29,3 +29,26 @@
   }
 }
 .simulation-form { width: 20em }
+
+
+/********************************************************************
+    style for 767px screen
+********************************************************************/
+@media screen and (max-width: 767px) { 
+  .container { 
+    display: block;
+    width: auto ;
+    min-height: auto;
+  }
+  .container-form {
+    width: 100%;
+    padding: 0 2em
+  }
+  .simulation-form { width: 100% }
+  .container-receipts {
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    .title-container-receipts { padding: 1.5em 0 .4em 0 }
+  }
+}
