@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server  --config webpack.dev.js --open",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "npm run test -- --coverage --watchAll=false",
     "lint": "eslint src --cache && echo \"eslint: no lint errors\"",
     "lint:fix": "eslint src --cache --fix && echo \"eslint: no lint errors\""
   },
-  "author": "",
+  "author": "Nélio Frazão",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.8.3",

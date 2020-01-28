@@ -6,6 +6,7 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 9,
+    "sourceType": "module",
   },
   rules: {
    'consistent-this': ['error', 'self'],
