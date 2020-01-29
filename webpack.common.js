@@ -3,13 +3,18 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './src/components/index.js',
+    main: './src/app/index.ts',
   },
   module: {
     rules: [
       {
         test: /\.html$/,
         use: ['html-loader'],
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.(svg|png|jpe?g|gif)$/i,
@@ -23,5 +28,8 @@ module.exports = {
         },
       },
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
 };
