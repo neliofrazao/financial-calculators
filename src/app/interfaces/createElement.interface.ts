@@ -1,4 +1,4 @@
-export interface createElementInterface {
+export interface CreateElementInterface {
   tag: string;
   className?: string;
 }
