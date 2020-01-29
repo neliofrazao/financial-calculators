@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const common = require('./webpack.common');
 const merge = require('webpack-merge');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'development',
