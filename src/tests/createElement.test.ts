@@ -15,4 +15,29 @@ describe('test CreateElementFactory', () => {
     expect(getHtmlElement).toBeDefined;
     expect(getHtmlElement.innerHTML).toBe('element text');
   });
+
+  test('shoud create element with children', () => {
+    const newHtmlElement = CreateElementFactory.addElement({
+      tag: 'ul',
+      attributes: {
+        id: 'list',
+      },
+      children: [
+        {
+          tag: 'li',
+          textContent: 'liste item',
+        },
+        {
+          tag: 'li',
+          textContent: 'liste item',
+        },
+      ],
+    });
+    document.body.appendChild(newHtmlElement);
+    const getHtmlElement = document.getElementById('list');
+    const getListElements = getHtmlElement.getElementsByTagName('li');
+
+    expect(getHtmlElement).toBeDefined;
+    expect(getListElements.length).toBe(2);
+  });
 });
