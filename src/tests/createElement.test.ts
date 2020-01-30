@@ -1,8 +1,8 @@
-import { CreateElement } from '../app/shared/createElement';
+import { CreateElementFactory } from '../app/shared/createElementFactory';
 
 test('shoud output tag h1 with className', () => {
   const h1Title = { tag: 'h1', className: 'title' };
-  CreateElement.addElement(h1Title);
+  CreateElementFactory.addElement(h1Title);
   const getTitile = document.getElementsByTagName('h1');
 
   expect(getTitile).toBeDefined();
