@@ -10,13 +10,13 @@ export class CreateElement {
     attributes,
     children,
   }: CreateElementInterface): HTMLElement {
-    const addHtmlElement = document.createElement(tag);
-    addHtmlElement.textContent = textContent;
+    const newHtmlElement = this.addHtmlElement(tag);
+    newHtmlElement.textContent = textContent;
 
-    this.addAttributesElement(addHtmlElement, attributes);
-    this.addChildrenElement(children, addHtmlElement);
+    this.addAttributesElement(newHtmlElement, attributes);
+    this.addChildrenElement(children, newHtmlElement);
 
-    return addHtmlElement;
+    return newHtmlElement;
   }
 
   private static addAttributesElement(htmlElement: HTMLElement, attributes: object) {
@@ -31,12 +31,19 @@ export class CreateElement {
     children: Array<ChildrenElementInterface>,
     htmlElement: HTMLElement,
   ) {
-    children.map(values => {
-      const childrenHtmlElement = document.createElement(values.tag);
-      this.addAttributesElement(childrenHtmlElement, values.attributes);
+    if (children) {
+      children.length &&
+        children.map(values => {
+          const childrenHtmlElement = this.addHtmlElement(values.tag);
+          this.addAttributesElement(childrenHtmlElement, values.attributes);
 
-      childrenHtmlElement.textContent = values.textContent;
-      htmlElement.append(childrenHtmlElement);
-    });
+          childrenHtmlElement.textContent = values.textContent;
+          htmlElement.append(childrenHtmlElement);
+        });
+    }
+  }
+
+  private static addHtmlElement(tag: string) {
+    return document.createElement(tag);
   }
 }
