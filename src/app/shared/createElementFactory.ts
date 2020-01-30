@@ -22,7 +22,7 @@ export class CreateElementFactory {
   private static addChildrenElement(
     children: Array<CreateElementInterface>,
     htmlElement: HTMLElement,
-  ) {
+  ): void {
     children.length &&
       children.map(childrenValues => {
         const childrenHtmlElement = this.addHtmlElement(childrenValues.tag);
