@@ -7,8 +7,8 @@ export class CreateElement {
   public static addElement({
     tag,
     textContent,
-    attributes,
-    children,
+    attributes = {},
+    children = [],
   }: CreateElementInterface): HTMLElement {
     const newHtmlElement = this.addHtmlElement(tag);
     newHtmlElement.textContent = textContent;
@@ -20,7 +20,8 @@ export class CreateElement {
   }
 
   private static addAttributesElement(htmlElement: HTMLElement, attributes: object) {
-    if (attributes) {
+    const hasNoErrors = Object.keys(attributes).length;
+    if (hasNoErrors) {
       Object.entries(attributes).forEach(([attr, value]) => {
         htmlElement.setAttribute(attr, value);
       });
@@ -31,15 +32,16 @@ export class CreateElement {
     children: Array<ChildrenElementInterface>,
     htmlElement: HTMLElement,
   ) {
-    if (children) {
-      children.length &&
-        children.map(values => {
-          const childrenHtmlElement = this.addHtmlElement(values.tag);
-          this.addAttributesElement(childrenHtmlElement, values.attributes);
+    const hasChildren = children.length;
 
-          childrenHtmlElement.textContent = values.textContent;
-          htmlElement.append(childrenHtmlElement);
-        });
+    if (hasChildren) {
+      children.map(values => {
+        const getChildrenAttributes = values.attributes || {};
+        const childrenHtmlElement = this.addHtmlElement(values.tag);
+        this.addAttributesElement(childrenHtmlElement, getChildrenAttributes);
+        childrenHtmlElement.textContent = values.textContent;
+        htmlElement.append(childrenHtmlElement);
+      });
     }
   }
 
