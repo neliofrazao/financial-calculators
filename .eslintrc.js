@@ -13,6 +13,7 @@ module.exports = {
   },
   rules: {
    'consistent-this': ['error', 'self'],
+   "@typescript-eslint/explicit-function-return-type": "off",
    'max-len': [
       'error',
       100,

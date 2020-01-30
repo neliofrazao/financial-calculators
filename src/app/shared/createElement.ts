@@ -1,4 +1,7 @@
-import { CreateElementInterface } from '../interfaces/createElement.interface';
+import {
+  CreateElementInterface,
+  ChildrenElementInterface,
+} from '../interfaces/createElement.interface';
 
 export class CreateElement {
   public static addElement({
@@ -7,27 +10,33 @@ export class CreateElement {
     attributes,
     children,
   }: CreateElementInterface): HTMLElement {
-    const newElement = document.createElement(tag);
+    const addHtmlElement = document.createElement(tag);
+    addHtmlElement.textContent = textContent;
 
+    this.addAttributesElement(addHtmlElement, attributes);
+    this.addChildrenElement(children, addHtmlElement);
+
+    return addHtmlElement;
+  }
+
+  private static addAttributesElement(htmlElement: HTMLElement, attributes: object) {
     if (attributes) {
       Object.entries(attributes).forEach(([attr, value]) => {
-        newElement.setAttribute(attr, value);
+        htmlElement.setAttribute(attr, value);
       });
     }
+  }
 
-    newElement.textContent = textContent;
-
+  private static addChildrenElement(
+    children: Array<ChildrenElementInterface>,
+    htmlElement: HTMLElement,
+  ) {
     children.map(values => {
-      const newChildren = document.createElement(values.tag);
+      const childrenHtmlElement = document.createElement(values.tag);
+      this.addAttributesElement(childrenHtmlElement, values.attributes);
 
-      Object.entries(values.attributes).forEach(([key, value]) => {
-        newChildren.setAttribute(key, value);
-      });
-
-      newChildren.textContent = values.textContent;
-      newElement.append(newChildren);
+      childrenHtmlElement.textContent = values.textContent;
+      htmlElement.append(childrenHtmlElement);
     });
-
-    return newElement;
   }
 }
