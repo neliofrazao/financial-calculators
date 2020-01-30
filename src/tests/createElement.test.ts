@@ -1,9 +1,18 @@
 import { CreateElementFactory } from '../app/shared/createElementFactory';
 
-test('shoud output tag h1 with className', () => {
-  const h1Title = { tag: 'h1', className: 'title' };
-  CreateElementFactory.addElement(h1Title);
-  const getTitile = document.getElementsByTagName('h1');
+describe('test CreateElementFactory', () => {
+  test('shoud output div tag with text and id', () => {
+    const newHtmlElement = CreateElementFactory.addElement({
+      tag: 'div',
+      textContent: 'element text',
+      attributes: {
+        id: 'root',
+      },
+    });
+    document.body.appendChild(newHtmlElement);
+    const getHtmlElement = document.getElementById('root');
 
-  expect(getTitile).toBeDefined();
+    expect(getHtmlElement).toBeDefined;
+    expect(getHtmlElement.innerHTML).toBe('element text');
+  });
 });
