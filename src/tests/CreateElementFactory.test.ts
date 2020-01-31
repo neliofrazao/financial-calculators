@@ -1,4 +1,4 @@
-import { CreateElementFactory } from '../app/shared/createElementFactory';
+import { CreateElementFactory } from '../app/shared/CreateElementFactory';
 
 describe('test CreateElementFactory', () => {
   test('shoud output div tag with text and id', () => {
