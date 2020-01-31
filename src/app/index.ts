@@ -5,19 +5,19 @@ import { ReceiptsList } from './components/ReceiptsList/ReceiptsList';
   const initialValues = [
     {
       date: 'Amanhã',
-      value: '0,00',
+      value: 0,
     },
     {
       date: 'Em 15 dias',
-      value: '0,00',
+      value: 0,
     },
     {
       date: 'Em 30 dias',
-      value: '0,00',
+      value: 0,
     },
     {
       date: 'Em 90 dias',
-      value: '0,00',
+      value: 0,
     },
   ];
 

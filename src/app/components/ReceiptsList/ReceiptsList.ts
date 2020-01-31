@@ -23,14 +23,20 @@ export class ReceiptsList {
   }
 
   private getListItemValues(itemValues: Array<object>) {
-    const listItems = itemValues.map((listItem: { date: string; value: string }) => {
+    const moneyFormatter = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+      minimumFractionDigits: 2,
+    });
+
+    const listItems = itemValues.map((listItem: { date: string; value: number }) => {
       const mountReceiptsListItems = {
         tag: 'li',
         textContent: listItem.date,
         children: [
           {
             tag: 'span',
-            textContent: `R$ ${listItem.value}`,
+            textContent: moneyFormatter.format(listItem.value),
             attributes: {
               class: 'receipts-list-value',
             },

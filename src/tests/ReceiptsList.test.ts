@@ -4,11 +4,11 @@ describe('test ReceiptsList', () => {
   const initialValues = [
     {
       date: 'Amanhã',
-      value: '10,00',
+      value: 12436,
     },
     {
       date: 'Em 15 dias',
-      value: '0,00',
+      value: 12831,
     },
   ];
 
@@ -23,6 +23,6 @@ describe('test ReceiptsList', () => {
 
     expect(getItemListElement).toBeDefined();
     expect(getItemListElement.length).toBe(2);
-    expect(getSpanElement[0].innerHTML).toEqual('R$ 10,00');
+    expect(getSpanElement[0].innerHTML).toContain('12,436.00');
   });
 });
