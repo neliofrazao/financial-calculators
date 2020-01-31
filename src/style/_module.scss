@@ -13,7 +13,11 @@
     color: $light_blue;
     @include line-height(31)
   }
-  .receipts-list-value{ font-weight: bold }
+  .receipts-list-value{
+    left: .5em;
+    position: relative;
+    font-weight: bold
+   }
 }
 
 .form-control {

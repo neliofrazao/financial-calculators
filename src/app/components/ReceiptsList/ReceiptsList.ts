@@ -1,3 +1,4 @@
+import { MoneyFormatter } from './../../shared/MoneyFormatter';
 import { CreateElementFactory } from '../../shared/CreateElementFactory';
 export class ReceiptsList {
   private dataListValue: Array<object>;
@@ -23,12 +24,6 @@ export class ReceiptsList {
   }
 
   private getListItemValues(itemValues: Array<object>) {
-    const moneyFormatter = new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      minimumFractionDigits: 2,
-    });
-
     const listItems = itemValues.map((listItem: { date: string; value: number }) => {
       const mountReceiptsListItems = {
         tag: 'li',
@@ -36,7 +31,7 @@ export class ReceiptsList {
         children: [
           {
             tag: 'span',
-            textContent: moneyFormatter.format(listItem.value),
+            textContent: MoneyFormatter.format(listItem.value),
             attributes: {
               class: 'receipts-list-value',
             },
