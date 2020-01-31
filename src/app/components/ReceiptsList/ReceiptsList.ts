@@ -10,6 +10,7 @@ export class ReceiptsList {
     const list = CreateElementFactory.addElement({
       tag: 'ul',
       attributes: {
+        id: 'receipts',
         class: 'receipts-list',
       },
       children: this.getListItemValues(this.listItemsValues),
@@ -29,7 +30,7 @@ export class ReceiptsList {
         children: [
           {
             tag: 'span',
-            textContent: listItem.value,
+            textContent: `R$ ${listItem.value}`,
             attributes: {
               class: 'receipts-list-value',
             },
