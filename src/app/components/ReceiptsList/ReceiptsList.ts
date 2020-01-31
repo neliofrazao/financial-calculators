@@ -1,5 +1,4 @@
-import { MoneyFormatter } from './../../shared/MoneyFormatter';
-import { CreateElementFactory } from '../../shared/CreateElementFactory';
+import { CreateElementFactory, MoneyFormatter } from '../../utils';
 export class ReceiptsList {
   private dataListValue: Array<object>;
 
