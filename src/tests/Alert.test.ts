@@ -21,4 +21,13 @@ describe('test Alert', () => {
     expect(getAlert.innerHTML).toContain('info alert');
   });
 
+  test('shoud output info warning', () => {
+    const alertMessage = alert.warning('warning alert');
+    document.body.appendChild(alertMessage);
+    const getAlert = document.getElementById('alert');
+    const getAlertSeverity = getAlert.getAttribute('class');
+
+    expect(getAlertSeverity).toEqual('alert-standard-warning');
+    expect(getAlert.innerHTML).toContain('warning alert');
+  });
 });
