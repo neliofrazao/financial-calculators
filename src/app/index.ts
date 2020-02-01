@@ -1,5 +1,6 @@
 import '../style/main.scss';
 import { ReceiptsList } from './components/ReceiptsList/ReceiptsList';
+import { SimulationForm } from './components/SimulationForm/SimulationForm';
 
 {
   const initialValues = [
@@ -23,6 +24,9 @@ import { ReceiptsList } from './components/ReceiptsList/ReceiptsList';
 
   const receiptsList = document.querySelector('#receipts');
   const newList = new ReceiptsList(initialValues);
+  const teste = new SimulationForm();
   const list = newList.getReceiptsList();
+  teste.sendData();
+
   receiptsList.append(list);
 }
