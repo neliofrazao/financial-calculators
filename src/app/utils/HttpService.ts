@@ -1,7 +1,11 @@
+import { Alert } from '../shared/Alert';
+
 export class HttpService {
   public static async post(url: string, body: object): Promise<Response> {
+    const BASE_URL = 'https';
+    const alertMessage = new Alert();
     try {
-      const response = await fetch(url, {
+      const response = await fetch(`${BASE_URL}://${url}`, {
         method: 'POST',
         mode: 'cors',
         body: JSON.stringify(body),
@@ -9,15 +13,18 @@ export class HttpService {
           'Content-type': 'application/json',
         },
       });
-      this.handleErrors(response);
+      HttpService.handleErrors(response);
       return response;
     } catch (error) {
-      return error;
+      alertMessage.error('Ops! Sistema instável, tente novamente mais tarde!');
     }
   }
 
   private static handleErrors(response: { ok: boolean; statusText: string }): object {
-    if (!response.ok) throw Error(response.statusText);
+    if (!response.ok) {
+      console.log(response);
+      throw Error(response.statusText);
+    }
 
     return response;
   }
