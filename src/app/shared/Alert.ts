@@ -1,16 +1,16 @@
-import { CreateElementFactory } from '../utils';
+import { CreateElementFactory } from '../utils/CreateElementFactory';
 
 export class Alert {
-  public error(alertMessage: string): void {
-    this.createAlert('alert-standard-error', alertMessage);
+  public error(alertMessage: string): Node {
+    return this.createAlert('alert-standard-error', alertMessage);
   }
 
-  public warning(alertMessage: string): void {
-    this.createAlert('alert-standard-warning', alertMessage);
+  public warning(alertMessage: string): Node {
+    return this.createAlert('alert-standard-warning', alertMessage);
   }
 
-  public info(alertMessage: string): void {
-    this.createAlert('alert-standard-info', alertMessage);
+  public info(alertMessage: string): Node {
+    return this.createAlert('alert-standard-info', alertMessage);
   }
 
   private createAlert(alertSeverity: string, alertMessage: string): HTMLElement {
@@ -38,16 +38,11 @@ export class Alert {
         },
       ],
     });
-    this.handleAlertTimeout();
+    const currentAlert = document.getElementById('alert');
+    if (currentAlert) currentAlert.remove();
     this.handleCloseAlert();
-    return document.body.appendChild(alertRoot);
-  }
 
-  private handleAlertTimeout(): void {
-    setTimeout(() => {
-      const getAlert = document.getElementById('alert');
-      getAlert.remove();
-    }, 3000);
+    return document.body.appendChild(alertRoot);
   }
 
   private handleCloseAlert(): void {
