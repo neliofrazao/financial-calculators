@@ -28,6 +28,13 @@ export class Alert {
             class: 'alert-message',
           },
         },
+        {
+          tag: 'span',
+          textContent: alertMessage,
+          attributes: {
+            id: 'close',
+          },
+        },
       ],
     });
 
