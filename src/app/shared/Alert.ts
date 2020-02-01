@@ -30,9 +30,10 @@ export class Alert {
         },
         {
           tag: 'span',
-          textContent: alertMessage,
+          textContent: 'x',
           attributes: {
             id: 'close',
+            class: 'alert-close',
           },
         },
       ],

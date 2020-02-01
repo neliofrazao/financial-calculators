@@ -1,3 +1,35 @@
+#alert {
+  top: 0;
+  left: 0;
+  padding: 6px 40px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.alert-standard-error {
+  color: $red;
+  background-color: $light_red;
+}
+
+.alert-standard-warning {
+  color: $orage;
+  background-color: $light_yellow;
+}
+
+.alert-standard-info {
+  color: $blue;
+  background-color: $blue_25;
+}
+
+.alert-close{
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
 .paper{
   background: $white; 
   border: 1px solid $graphite_25;
