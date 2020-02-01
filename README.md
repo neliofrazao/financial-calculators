@@ -21,7 +21,7 @@
 
 * Run `npm run test:watch` to run and watch all test files in app
 
-* Run `npm run test:coverage` to track the percentage and areas of unit tests have covered
+* Run `npm run cover` to track the percentage and areas of unit tests have covered
 
 
 ### IMPORTANT!
@@ -31,6 +31,7 @@
 * [HTML5](https://www.w3c.br/pub/Cursos/CursoHTML5/html5-web.pdf)
 * [SASS](https://sass-lang.com/)
 * [JAVASCRIPT](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [TYPESCRIPT](https://www.typescriptlang.org/)
 * [WEBPACK](https://webpack.js.org/)
 * [JEST](https://jestjs.io/)
 
