@@ -1,16 +1,13 @@
 import { Alert } from '../shared/Alert';
+import { errorMessages } from './constants';
 
 const BASE_URL = 'https';
-const ERROR_TIMEOUT = 'Infelizmente estamos com problemas de conexão, tente novamente mais tarde.';
-const ERROR_DEFAULT = 'Ops! Sistema instável, tente novamente mais tarde!';
-const NETWORK_ERROR = 'Para utilizar o nosso sistema é necessário estar conectado a uma Rede';
-
 export class HttpService {
   private static alertMessage = new Alert();
 
   public static async post(url: string, body: object): Promise<Response> {
     if (!window.navigator.onLine) {
-      this.alertMessage.info(NETWORK_ERROR);
+      this.alertMessage.info(errorMessages.NETWORK_ERROR);
     } else {
       try {
         const response = await fetch(`${BASE_URL}://${url}`, {
@@ -40,7 +37,7 @@ export class HttpService {
 
   private static async handleStatusCodeMenssage(statusCode: string) {
     const getStatusCode = await statusCode;
-    if (getStatusCode === '408') this.alertMessage.warning(ERROR_TIMEOUT);
-    else this.alertMessage.error(ERROR_DEFAULT);
+    if (getStatusCode === '408') this.alertMessage.warning(errorMessages.ERROR_TIMEOUT);
+    else this.alertMessage.error(errorMessages.ERROR_DEFAULT);
   }
 }
