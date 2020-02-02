@@ -13,8 +13,8 @@ describe('test ReceiptsList', () => {
   ];
 
   test('shoud output div ReceiptsList with data and values', () => {
-    const newList = new ReceiptsList(initialValues);
-    const list = newList.getReceiptsList();
+    const newList = new ReceiptsList();
+    const list = newList.getReceiptsList(initialValues);
     document.body.appendChild(list);
 
     const getHtmlElement = document.getElementById('receipts');

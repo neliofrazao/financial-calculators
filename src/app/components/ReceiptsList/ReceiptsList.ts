@@ -1,25 +1,35 @@
 import { CreateElementFactory, MoneyFormatter } from '../../utils';
+
+const initialValues = [
+  {
+    date: 'Amanhã',
+    value: 0,
+  },
+  {
+    date: 'Em 15 dias',
+    value: 0,
+  },
+  {
+    date: 'Em 30 dias',
+    value: 0,
+  },
+  {
+    date: 'Em 90 dias',
+    value: 0,
+  },
+];
+
 export class ReceiptsList {
-  private dataListValue: Array<object>;
-
-  constructor(receiptsListValue: Array<object>) {
-    this.dataListValue = receiptsListValue;
-  }
-
-  public getReceiptsList(): HTMLElement {
+  public getReceiptsList(dataListValue: Array<object> = initialValues): HTMLElement {
     const list = CreateElementFactory.addElement({
       tag: 'ul',
       attributes: {
         id: 'receipts',
         class: 'receipts-list',
       },
-      children: this.getListItemValues(this.listItemsValues),
+      children: this.getListItemValues(dataListValue),
     });
     return list;
-  }
-
-  public get listItemsValues() {
-    return this.dataListValue;
   }
 
   private getListItemValues(itemValues: Array<object>) {

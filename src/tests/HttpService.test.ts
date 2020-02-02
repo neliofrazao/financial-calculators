@@ -32,7 +32,6 @@ describe('testing http service', () => {
   test('should print error message', async () => {
     jest.spyOn(window.navigator, 'onLine', 'get').mockReturnValue(true);
     fetchMock.mockRejectedValueOnce(Promise.resolve({}));
-
     const url = 'hash-front-test.herokuapp.com/';
     await HttpService.post(url, payload);
     const getAlert = document.getElementById('alert');
