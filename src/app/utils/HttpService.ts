@@ -9,7 +9,7 @@ export class HttpService {
   private static alertMessage = new Alert();
 
   public static async post(url: string, body: object): Promise<Response> {
-    if (!navigator.onLine) {
+    if (!window.navigator.onLine) {
       this.alertMessage.info(NETWORK_ERROR);
     } else {
       try {
