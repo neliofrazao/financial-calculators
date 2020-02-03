@@ -2,7 +2,7 @@ import { CreateElementFactory } from '../utils';
 
 export class Loading {
   public static addLoading(): HTMLElement {
-    const container = document.getElementById('container');
+    // const container = document.getElementById('container');
     const addLoading = CreateElementFactory.addElement({
       tag: 'div',
       attributes: {
@@ -16,7 +16,7 @@ export class Loading {
       ],
     });
 
-    return container.appendChild(addLoading);
+    return document.body.appendChild(addLoading);
   }
 
   public static removeLoading(): void {
