@@ -9,7 +9,7 @@ export class ReceiptsList {
         id: 'receipts',
         class: 'receipts-list',
       },
-      children: this.formatItemsList(dataListValue),
+      children: this.formatItemsList(dataListValue || []),
     });
 
     return list;

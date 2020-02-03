@@ -1,13 +1,8 @@
 import '../style/main.scss';
-import { ReceiptsList } from './components/ReceiptsList/ReceiptsList';
-import { SimulationForm } from './components/SimulationForm/SimulationForm';
+
+import { ReceiptsForm } from './components/ReceiptsForm/ReceiptsForm';
 
 {
-  const receiptsList = document.querySelector('#receipts');
-  const newList = new ReceiptsList();
-  const teste = new SimulationForm();
-  const list = newList.getReceiptsList();
-  teste.sendData();
-
-  receiptsList.append(list);
+  const teste = new ReceiptsForm();
+  teste.handleFormSubmit();
 }
