@@ -3,10 +3,8 @@
   left: 0;
   padding: 6px 40px;
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
+  @include flex-align (space-between, center);
 }
 
 .alert-standard-error {
@@ -65,9 +63,9 @@
     border: 1px solid $graphite_25;
     @include border-radius(5px);
     &:focus {
-      @include animate(all, .5s, ease);
       outline: none;
       border: 1px solid #5ba6e6;
+      @include animate(all, .5s, ease);
     }
   }
   small { color: $graphite_45}
@@ -81,4 +79,15 @@
       content: "*";
     }
   }
+}
+
+#loading{
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 10;
+  @include abs-pos(0, 0);
+  @include flex-align (center, center)
 }

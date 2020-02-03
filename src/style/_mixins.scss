@@ -36,3 +36,11 @@
   left: $left; 
   position: absolute;
 }
+
+@mixin flex-align ($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+
