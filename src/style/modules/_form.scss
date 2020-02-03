@@ -1,0 +1,33 @@
+.simulation-form { width: 20em }
+
+.form-control {
+  padding: 0.5em 0 1.8em;
+  display: block;
+  font-size: 1.1em;
+  input {
+    padding: 0 0.5em;
+    margin-top: 0.5em;
+    width: 100%;
+    height: 34px;
+    border: 1px solid $graphite_25;
+    @include border-radius(5px);
+    &:focus {
+      outline: none;
+      border: 1px solid #5ba6e6;
+      @include animate(all, 0.5s, ease);
+    }
+  }
+  small {
+    color: $graphite_45;
+  }
+}
+
+.required {
+  label {
+    &:after {
+      position: relative;
+      left: 0.5em;
+      content: '*';
+    }
+  }
+}

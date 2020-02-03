@@ -1,0 +1,31 @@
+#alert {
+    top: 0;
+    left: 0;
+    padding: 6px 40px;
+    position: absolute;
+    width: 100%;
+    @include flex-align (space-between, center);
+  }
+  
+  .alert-standard-error {
+    color: $red;
+    background-color: $light_red;
+  }
+  
+  .alert-standard-warning {
+    color: $orage;
+    background-color: $light_yellow;
+  }
+  
+  .alert-standard-info {
+    color: $blue;
+    background-color: $blue_25;
+  }
+  
+  .alert-close{
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: bolder;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,14 @@
+.receipts-list {
+  padding: 0;
+  li { 
+    list-style-type: none;
+    font-size: 1.2em;
+    color: $light_blue;
+    @include line-height(31)
+  }
+  .receipts-list-value{
+    left: .5em;
+    position: relative;
+    font-weight: bold
+   }
+}

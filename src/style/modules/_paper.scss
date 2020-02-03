@@ -1,0 +1,6 @@
+.paper{
+  background: $white; 
+  border: 1px solid $graphite_25;
+  overflow: hidden;
+  @include border-radius(1%);
+}

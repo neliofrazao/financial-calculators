@@ -15,17 +15,17 @@
         <form class="simulation-form" id="form-receipts">
           <div class="form-control required">
             <label for="amount">Informe o valor da venda</label>
-            <input type="text" id="amount" name="amount" />
+            <input type="number" id="amount" name="amount" required />
           </div>
 
           <div class="form-control required">
             <label for="installments">Em quantas parcelas</label>
-            <input type="text" id="installments" name="installments" maxlength="2" />
+            <input type="number" id="installments" name="installments" maxlength="2" required />
             <small>Máximo de 12 Parcelas</small>
           </div>
           <div class="form-control required">
             <label for="mdr">Informe o percentual de MDR</label>
-            <input type="mdr" id="mdr" name="mdr" />
+            <input type="number" id="mdr" name="mdr" required />
           </div>
           <button type="submit">Enviar</button>
         </form>
