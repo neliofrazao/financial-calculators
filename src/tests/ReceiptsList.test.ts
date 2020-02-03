@@ -1,6 +1,8 @@
 import { ReceiptsList } from '../app/components/ReceiptsList/ReceiptsList';
 
 describe('test ReceiptsList', () => {
+  const newList = new ReceiptsList();
+
   test('shoud output div ReceiptsList with data and values', () => {
     const initialValues = [
       {
@@ -20,8 +22,6 @@ describe('test ReceiptsList', () => {
         value: 12900,
       },
     ];
-
-    const newList = new ReceiptsList();
     const list = newList.getReceiptsList(initialValues);
     document.body.appendChild(list);
 
@@ -39,7 +39,6 @@ describe('test ReceiptsList', () => {
         value: 12436,
       },
     ];
-    const newList = new ReceiptsList();
     const list = newList.getReceiptsList(initialValues);
     document.body.appendChild(list);
 
