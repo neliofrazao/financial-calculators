@@ -1,0 +1,13 @@
+.button{
+  width: 100%;
+  padding: 1em 7em;
+  margin-bottom: 1.5em;
+  text-transform: uppercase;
+  background: $blue;
+  color: $light_gray;
+  @include border-radius(1%);
+  @include animate(all, 0.5s, ease);
+  &:hover{
+    background: $light_blue;
+  }
+}
