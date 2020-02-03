@@ -4,5 +4,5 @@ import { ReceiptsForm } from './components/ReceiptsForm/ReceiptsForm';
 
 {
   const teste = new ReceiptsForm();
-  teste.handleFormSubmit();
+  teste.handlePostData();
 }

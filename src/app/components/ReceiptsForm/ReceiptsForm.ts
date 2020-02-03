@@ -5,40 +5,43 @@ import { Loading } from '../../shared/Loading';
 // hash-front-test.herokuapp.com/?timeout
 // hash-front-test.herokuapp.com/?internalError
 // hash-front-test.herokuapp.com/?delay=tempoEmMilissegundos
-
-const formData = {
-  amount: 15000,
-  installments: 3,
-  mdr: 6,
-};
-
 export class ReceiptsForm {
-  private getFormDataResponse: Array<object>;
-  private receiptsList: ReceiptsList;
+  public handlePostData(): void {
+    const formReceipts = document.getElementById('form-receipts');
+    formReceipts.addEventListener('submit', event => {
+      event.preventDefault();
+      const form = event.target as HTMLFormElement;
+      const formData = new FormData(form);
+      const formatRequest = {
+        amount: formData.get('amount'),
+        installments: formData.get('installments'),
+        mdr: formData.get('mdr'),
+      };
 
-  constructor() {
-    this.receiptsList = new ReceiptsList();
+      this.fetchReceipts(formatRequest);
+    });
   }
 
-  public async fetchReceipts() {
-    const payload = await formData;
-    const receiptsList = document.getElementById('container-receipts');
+  private async fetchReceipts(payload: object) {
+    const getPlayload = await payload;
+
     Loading.addLoading();
-    const response = HttpService.post('hash-front-test.herokuapp.com/', payload)
+    const response = HttpService.post('hash-front-test.herokuapp.com/', getPlayload)
       .then((response: Response) => response.json())
-      .then((responseJson: Array<object>) => (this.getFormDataResponse = responseJson))
+      .then((responseJson: Array<object>) => this.createReceiptsList(responseJson))
       .finally(() => {
         Loading.removeLoading();
-        const addReceiptsList = this.receiptsList.getReceiptsList(this.getFormDataResponse);
-        receiptsList.append(addReceiptsList);
       });
 
     return response;
   }
 
-  public handleFormSubmit() {
-    document.getElementById('send-data').addEventListener('click', () => {
-      this.fetchReceipts();
-    });
+  private createReceiptsList(receiptsListValue: Array<object>): void {
+    console.log(receiptsListValue);
+    const containerReceipts = document.getElementById('container-receipts');
+    const receiptsList = new ReceiptsList();
+    const createReceiptsList = receiptsList.getReceiptsList(receiptsListValue);
+
+    containerReceipts.append(createReceiptsList);
   }
 }
