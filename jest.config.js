@@ -2,9 +2,11 @@ module.exports = {
   globals: {
     'ts-jest': {
       tsConfig: 'tsconfig.test.json',
+      importHelpers: true,
     },
   },
   preset: 'ts-jest',
+  'automock': false,
   testEnvironment: 'node',
   'setupFilesAfterEnv': ['./src/tests/setup.js'],
   collectCoverageFrom: [

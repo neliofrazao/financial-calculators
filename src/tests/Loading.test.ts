@@ -11,6 +11,6 @@ describe('test loading', () => {
     Loading.removeLoading();
     const getLoading = document.getElementById('loading');
 
-    expect(getLoading).toBeUndefined();
+    expect(getLoading).toBeNull();
   });
 });
