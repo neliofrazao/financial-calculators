@@ -1,5 +1,7 @@
 import { HttpService, errorMessages } from '../app/utils';
 
+const fetchMock = fetch as any;
+
 const payload = {
   amount: 15000,
   installments: 3,
@@ -8,6 +10,7 @@ const payload = {
 
 describe('testing http service', () => {
   beforeEach(() => {
+    fetchMock.resetMocks();
     jest.clearAllMocks();
   });
 
@@ -23,6 +26,17 @@ describe('testing http service', () => {
       'method': 'POST',
       'mode': 'cors',
     });
+  });
+
+  test('should print error message', async () => {
+    jest.spyOn(window.navigator, 'onLine', 'get').mockReturnValue(true);
+    fetchMock.mockRejectedValueOnce(Promise.resolve({}));
+
+    const url = 'hash-front-test.herokuapp.com/';
+    await HttpService.post(url, payload);
+    const getAlert = document.getElementById('alert');
+
+    expect(getAlert.innerHTML).toContain(errorMessages.ERROR_DEFAULT);
   });
 
   test('should print offline message', async () => {
