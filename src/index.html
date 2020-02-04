@@ -21,7 +21,16 @@
 
           <div class="form-control required">
             <label for="installments">Em quantas parcelas</label>
-            <input type="number" id="installments" name="installments" maxlength="2"  required />
+            <input 
+              type="text"
+              id="installments"
+              name="installments" 
+              maxlength="2" 
+              required
+              min="1"
+              max="12"
+              pattern="[3-9]|[1-3][0-9]|4[0-2]"
+            />
             <small>Máximo de 12 Parcelas</small>
           </div>
           <div class="form-control required">

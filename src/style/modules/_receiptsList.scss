@@ -1,6 +1,10 @@
 .receipts-list {
   padding: 0;
   li { 
+    width: 190px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     list-style-type: none;
     font-size: 1.2em;
     color: $light_blue;
