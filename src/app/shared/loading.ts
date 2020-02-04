@@ -1,4 +1,4 @@
-import { CreateElementFactory } from '../utils';
+import { CreateElementFactory } from '../utils/CreateElementFactory';
 
 export class Loading {
   public static addLoading(): HTMLElement {
