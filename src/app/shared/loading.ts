@@ -2,7 +2,6 @@ import { CreateElementFactory } from '../utils';
 
 export class Loading {
   public static addLoading(): HTMLElement {
-    // const container = document.getElementById('container');
     const addLoading = CreateElementFactory.addElement({
       tag: 'div',
       attributes: {

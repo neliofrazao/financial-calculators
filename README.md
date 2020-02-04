@@ -36,4 +36,5 @@
 * [TYPESCRIPT](https://www.typescriptlang.org/)
 * [WEBPACK](https://webpack.js.org/)
 * [JEST](https://jestjs.io/)
+* [CYPRESS](https://www.cypress.io/)
 
