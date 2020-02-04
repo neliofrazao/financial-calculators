@@ -11,6 +11,9 @@
     height: 34px;
     border: 1px solid $graphite_25;
     @include border-radius(5px);
+    &:valid {
+      border: 1px solid $green;
+    }
     &:focus {
       outline: none;
       border: 1px solid #5ba6e6;

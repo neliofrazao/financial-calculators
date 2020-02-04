@@ -1,11 +1,19 @@
 import { HttpService } from '../../utils';
 import { ReceiptsList } from '../ReceiptsList/ReceiptsList';
 import { Loading } from '../../shared/Loading';
+import { Alert } from '../../shared/Alert';
 
-// hash-front-test.herokuapp.com/?timeout
-// hash-front-test.herokuapp.com/?internalError
-// hash-front-test.herokuapp.com/?delay=tempoEmMilissegundos
 export class ReceiptsForm {
+  private alertMessage: Alert;
+  private receiptsList: ReceiptsList;
+  private getForm: any;
+
+  constructor() {
+    this.alertMessage = new Alert();
+    this.receiptsList = new ReceiptsList();
+    this.getForm = document.getElementById('form-receipts');
+  }
+
   public handlePostData(): void {
     const formReceipts = document.getElementById('form-receipts');
     formReceipts.addEventListener('submit', event => {
@@ -17,6 +25,11 @@ export class ReceiptsForm {
         installments: formData.get('installments'),
         mdr: formData.get('mdr'),
       };
+
+      if (!this.getForm.checkValidity()) {
+        this.alertMessage.error('Por favor, preencha os itens corretamente');
+        return false;
+      }
 
       this.fetchReceipts(formatRequest);
     });
@@ -37,10 +50,8 @@ export class ReceiptsForm {
   }
 
   private createReceiptsList(receiptsListValue: Array<object>): void {
-    console.log(receiptsListValue);
     const containerReceipts = document.getElementById('container-receipts');
-    const receiptsList = new ReceiptsList();
-    const createReceiptsList = receiptsList.getReceiptsList(receiptsListValue);
+    const createReceiptsList = this.receiptsList.getReceiptsList(receiptsListValue);
 
     containerReceipts.append(createReceiptsList);
   }
