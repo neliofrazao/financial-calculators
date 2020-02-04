@@ -14,8 +14,12 @@ export class ReceiptsForm {
     this.getForm = document.getElementById('form-receipts');
   }
 
-  public handlePostData(): void {
-    const formReceipts = document.getElementById('form-receipts');
+  public init() {
+    this.handlePostData();
+  }
+
+  private handlePostData(): void {
+    const formReceipts = window.document.getElementById('form-receipts');
     formReceipts.addEventListener('submit', event => {
       event.preventDefault();
       const form = event.target as HTMLFormElement;
