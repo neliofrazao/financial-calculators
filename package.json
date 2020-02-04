@@ -10,7 +10,8 @@
     "test:watch": "jest --watch",
     "cover": "npm run test -- --coverage --watchAll=false",
     "lint": "eslint src --cache && echo \"eslint: no lint errors\"",
-    "lint:fix": "eslint src --cache --fix && echo \"eslint: no lint errors\""
+    "lint:fix": "eslint src --cache --fix && echo \"eslint: no lint errors\"",
+    "cypress": "NODE_ENV=development cypress open"
   },
   "author": "Nélio Frazão",
   "license": "ISC",

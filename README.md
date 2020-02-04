@@ -23,6 +23,8 @@
 
 * Run `npm run cover` to track the percentage and areas of unit tests have covered
 
+* Run `npm run cypress` to track tests end-to-end
+
 
 ### IMPORTANT!
 
