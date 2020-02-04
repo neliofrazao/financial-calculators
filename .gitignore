@@ -5,6 +5,8 @@ node_modules
 
 # testing
 /coverage
+/cypress/videos
+/cypress/screenshot
 
 # misc
 .DS_Store

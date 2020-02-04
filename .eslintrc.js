@@ -7,6 +7,8 @@ module.exports = {
     'plugin:prettier/recommended',
     'prettier',
   ],
+  plugins: ['eslint-plugin-cypress'],
+  env: {'cypress/globals': true},
   parserOptions: {
     ecmaVersion: 9,
     "sourceType": "module",
