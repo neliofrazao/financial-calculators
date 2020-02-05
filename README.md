@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/neliofrazao/financial-calculators.svg?style=svg)](https://circleci.com/gh/neliofrazao/financial-calculators)
+
 # README
 
 * Finantial Calculators
