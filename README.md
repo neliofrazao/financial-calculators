@@ -13,11 +13,11 @@
 
 * Run `npm install` to install internal dependencies
 
-* Run `npm start` to start the [Calculator](http://localhost:8080/) server
-
 * Run `npm run build:dev` to build for development
 
 * Run `npm run build` to build for production
+
+* Run `npm start` to start the [Calculator](http://localhost:8080/) server
 
 * Run `npm run lint` to check code pattern
 
