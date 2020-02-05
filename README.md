@@ -11,7 +11,7 @@
 
 * Run `npm install` to install internal dependencies
 
-* Run `npm start` to start the [Calculator](http://localhost:8080/)
+* Run `npm start` to start the [Calculator](http://localhost:8080/) server
 
 * Run `npm run build:dev` to build for development
 
@@ -27,7 +27,7 @@
 
 * Run `npm run cover` to track the percentage and areas of unit tests have covered
 
-* Run `npm run cypress` to track tests end-to-end
+* Run `npm run cypress` to run end-to-end tests
 
 
 ### IMPORTANT!
