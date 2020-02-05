@@ -31,7 +31,7 @@ export class ReceiptsForm {
       };
 
       if (!this.getForm.checkValidity()) {
-        this.alertMessage.error('Por favor, preencha os itens corretamente');
+        this.alertMessage.error('Por favor, preencha os itens corretamente!');
         return false;
       }
 

@@ -3,6 +3,7 @@
     left: 0;
     padding: 6px 40px;
     position: absolute;
+    text-transform: uppercase;
     width: 100%;
     z-index: 20;
     @include flex-align (space-between, center);
