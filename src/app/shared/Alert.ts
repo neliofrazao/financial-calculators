@@ -40,9 +40,17 @@ export class Alert {
     });
     const currentAlert = document.getElementById('alert');
     if (currentAlert) currentAlert.remove();
+    this.handleTimeoutCloseAlert();
     this.handleCloseAlert();
 
     return document.body.appendChild(alertRoot);
+  }
+
+  private handleTimeoutCloseAlert(): void {
+    setTimeout(() => {
+      const getAlert = document.getElementById('alert');
+      getAlert.remove();
+    }, 2500);
   }
 
   private handleCloseAlert(): void {
