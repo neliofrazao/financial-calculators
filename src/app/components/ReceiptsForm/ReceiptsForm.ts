@@ -1,6 +1,5 @@
 import { HttpService } from '../../utils';
 import { ReceiptsList } from '../ReceiptsList/ReceiptsList';
-import { Loading } from '../../shared/Loading';
 import { Alert } from '../../shared/Alert';
 
 export class ReceiptsForm {
@@ -42,13 +41,9 @@ export class ReceiptsForm {
   private async fetchReceipts(payload: object) {
     const getPlayload = await payload;
 
-    Loading.addLoading();
     const response = HttpService.post('hash-front-test.herokuapp.com/', getPlayload)
       .then((response: Response) => response.json())
-      .then((responseJson: Array<object>) => this.createReceiptsList(responseJson))
-      .finally(() => {
-        Loading.removeLoading();
-      });
+      .then((responseJson: Array<object>) => this.createReceiptsList(responseJson));
 
     return response;
   }
