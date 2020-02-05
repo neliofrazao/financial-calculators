@@ -17,7 +17,7 @@
 #container-receipts {
   padding: 6.2em 0 0 3.2em;
   width: 286px;
-  background: #f6f8f9; 
+  background: #f6f8f9;
   font-style: italic;
   @extend .container-columns;
   .title-container-receipts {
@@ -35,20 +35,31 @@
     style for 767px screen
 ********************************************************************/
 @media screen and (max-width: 767px) { 
-  .container { 
+  #container { 
     display: block;
     width: auto ;
     min-height: auto;
+    background: #f6f8f9;
   }
   .container-form {
     width: 100%;
-    padding: 0 2em
+    padding: 0 2em;
+    background: #fff;
+    .title-container-form{
+      padding: 1em 0;
+      margin: 0;
+      text-transform: uppercase 
+    }
   }
   .simulation-form { width: 100% }
-  .container-receipts {
+  #container-receipts {
     text-align: center;
     padding: 0;
     width: 100%;
-    .title-container-receipts { padding: 1.5em 0 .4em 0 }
+    border-top: 1px solid $blue_25;
+    .title-container-receipts {
+      padding: 1.5em 0 .4em 0;
+      text-transform: uppercase;
+    }
   }
 }
