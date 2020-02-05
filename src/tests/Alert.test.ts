@@ -1,5 +1,7 @@
 import { Alert } from '../app/shared/Alert';
 
+jest.useFakeTimers();
+
 describe('test Alert', () => {
   const alert = new Alert();
   test('shoud output error alert', () => {
