@@ -18,6 +18,24 @@
     "lint:fix": "eslint src --cache --fix && echo \"eslint: no lint errors\"",
     "cypress": "NODE_ENV=development cypress open"
   },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "linters": {
+    "*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run lint && npm run test -- --watchAll=false --bail"
+    }
+  },
   "author": "Nélio Frazão",
   "license": "ISC",
   "devDependencies": {
