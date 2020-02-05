@@ -6,9 +6,11 @@ export class HttpService {
   private static alertMessage = new Alert();
 
   public static async post(url: string, body: object): Promise<Response> {
+    const getSlowRequest = HttpService.handleSlowRequest();
     if (!window.navigator.onLine) {
       this.alertMessage.info(errorMessages.NETWORK_ERROR);
     } else {
+      getSlowRequest;
       try {
         const response = await fetch(`${BASE_URL}://${url}`, {
           method: 'POST',
@@ -19,13 +21,23 @@ export class HttpService {
             credentials: 'include',
           },
         });
+        clearInterval(getSlowRequest);
         HttpService.handleErrors(response);
 
         return response;
       } catch (error) {
+        clearInterval(getSlowRequest);
         HttpService.handleStatusCodeMenssage(error.message);
       }
     }
+  }
+
+  private static handleSlowRequest() {
+    const setTimeoutRequest = setTimeout(() => {
+      this.alertMessage.info(errorMessages.SLOW_REQUEST);
+    }, 3000);
+
+    return setTimeoutRequest;
   }
 
   private static handleErrors(response: Response): Response {
