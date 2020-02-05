@@ -1,4 +1,5 @@
-import { Alert } from '../app/shared/alert';
+import { Alert } from '../app/shared/Alert';
+
 describe('test Alert', () => {
   const alert = new Alert();
   test('shoud output error alert', () => {

@@ -11,6 +11,8 @@
 
 * Run `npm start` to start the [Calculator](http://localhost:8080/)
 
+* Run `npm run build:dev` to build for development
+
 * Run `npm run build` to build for production
 
 * Run `npm run lint` to check code pattern

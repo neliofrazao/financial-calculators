@@ -1,4 +1,5 @@
-import { Loading } from '../app/shared/loading';
+import { Loading } from '../app/shared/Loading';
+
 describe('test loading', () => {
   test('shoud output loading', () => {
     Loading.addLoading();
