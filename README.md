@@ -3,6 +3,8 @@
 * Finantial Calculators
 * Version 1.0.0
 
+* [DEMO](https://finantial-calculator.herokuapp.com/)
+
 ### How do I get set up?
 
 * [Install nodejs](https://nodejs.org/en/download/)
