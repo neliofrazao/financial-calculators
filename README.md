@@ -21,7 +21,7 @@
 
 * Run `npm run lint:fix` to check and fix code pattern
 
-* Run `npm run test` to run all test files in app
+* Run `npm run test` to run all test files
 
 * Run `npm run test:watch` to run and watch all test files in app
 
