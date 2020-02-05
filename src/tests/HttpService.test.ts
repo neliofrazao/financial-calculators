@@ -1,6 +1,7 @@
 import { HttpService, errorMessages } from '../app/utils';
 
 const fetchMock = fetch as any;
+jest.useFakeTimers();
 
 const payload = {
   amount: 15000,
@@ -37,6 +38,16 @@ describe('testing http service', () => {
     const getAlert = document.getElementById('alert');
 
     expect(getAlert.innerHTML).toContain(errorMessages.ERROR_DEFAULT);
+  });
+
+  test('should print slow request message', async () => {
+    jest.spyOn(window.navigator, 'onLine', 'get').mockReturnValue(true);
+
+    const url = 'hash-front-test.herokuapp.com/';
+    await HttpService.post(url, payload);
+    jest.advanceTimersByTime(4000);
+
+    expect(fetch).toHaveBeenCalledTimes(1);
   });
 
   test('should print offline message', async () => {
