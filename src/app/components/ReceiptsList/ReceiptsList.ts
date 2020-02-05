@@ -1,5 +1,12 @@
 import { CreateElementFactory, MoneyFormatter } from '../../utils';
 export class ReceiptsList {
+  /**
+   *
+   *
+   * @param {Array<object>} dataListValue
+   * @returns {HTMLElement}
+   * @memberof ReceiptsList
+   */
   public getReceiptsList(dataListValue: Array<object>): HTMLElement {
     const currentAlert = document.getElementById('receipts');
     if (currentAlert) currentAlert.remove();
@@ -14,7 +21,14 @@ export class ReceiptsList {
 
     return list;
   }
-
+  /**
+   *
+   *
+   * @private
+   * @param {Array<object>} itemValues
+   * @returns
+   * @memberof ReceiptsList
+   */
   private getListItemValues(itemValues: Array<object>) {
     const listItems = itemValues.map((listItem: { date: string; value: number }) => {
       const mountReceiptsListItems = {
@@ -34,7 +48,14 @@ export class ReceiptsList {
     });
     return listItems;
   }
-
+  /**
+   *
+   *
+   * @private
+   * @param {Array<object>} itemValues
+   * @returns
+   * @memberof ReceiptsList
+   */
   private formatItemsList(itemValues: Array<object>) {
     const getItemValues = Object.values(itemValues);
 

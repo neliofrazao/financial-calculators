@@ -13,11 +13,20 @@ export class ReceiptsForm {
     this.receiptsList = new ReceiptsList();
     this.getForm = document.getElementById('form-receipts');
   }
-
+  /**
+   *
+   *
+   * @memberof ReceiptsForm
+   */
   public init() {
     this.handlePostData();
   }
-
+  /**
+   *
+   *
+   * @private
+   * @memberof ReceiptsForm
+   */
   private handlePostData(): void {
     const formReceipts = window.document.getElementById('form-receipts');
     formReceipts.addEventListener('submit', event => {
@@ -38,7 +47,14 @@ export class ReceiptsForm {
       this.fetchReceipts(formatRequest);
     });
   }
-
+  /**
+   *
+   *
+   * @private
+   * @param {object} payload
+   * @returns
+   * @memberof ReceiptsForm
+   */
   private async fetchReceipts(payload: object) {
     const getPlayload = await payload;
 
@@ -52,7 +68,13 @@ export class ReceiptsForm {
 
     return response;
   }
-
+  /**
+   *
+   *
+   * @private
+   * @param {Array<object>} receiptsListValue
+   * @memberof ReceiptsForm
+   */
   private createReceiptsList(receiptsListValue: Array<object>): void {
     const containerReceipts = document.getElementById('container-receipts');
     const createReceiptsList = this.receiptsList.getReceiptsList(receiptsListValue);

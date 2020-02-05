@@ -4,7 +4,15 @@ import { errorMessages } from './constants';
 const BASE_URL = 'https';
 export class HttpService {
   private static alertMessage = new Alert();
-
+  /**
+   *
+   *
+   * @static
+   * @param {string} url
+   * @param {object} body
+   * @returns {Promise<Response>}
+   * @memberof HttpService
+   */
   public static async post(url: string, body: object): Promise<Response> {
     const getSlowRequest = HttpService.handleSlowRequest();
     if (!window.navigator.onLine) {
@@ -31,7 +39,14 @@ export class HttpService {
       }
     }
   }
-
+  /**
+   *
+   *
+   * @private
+   * @static
+   * @returns
+   * @memberof HttpService
+   */
   private static handleSlowRequest() {
     const setTimeoutRequest = setTimeout(() => {
       this.alertMessage.info(errorMessages.SLOW_REQUEST);
@@ -39,14 +54,29 @@ export class HttpService {
 
     return setTimeoutRequest;
   }
-
+  /**
+   *
+   *
+   * @private
+   * @static
+   * @param {Response} response
+   * @returns {Response}
+   * @memberof HttpService
+   */
   private static handleErrors(response: Response): Response {
     const { ok, status } = response;
     if (!ok) throw Error(status.toString());
 
     return response;
   }
-
+  /**
+   *
+   *
+   * @private
+   * @static
+   * @param {string} statusCode
+   * @memberof HttpService
+   */
   private static async handleStatusCodeMenssage(statusCode: string) {
     const getStatusCode = await statusCode;
     if (getStatusCode === '408') this.alertMessage.warning(errorMessages.ERROR_TIMEOUT);

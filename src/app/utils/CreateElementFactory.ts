@@ -4,6 +4,19 @@ import {
 } from '../interfaces/createElement.interface';
 
 export class CreateElementFactory {
+  /**
+   *
+   *
+   * @static
+   * @param {CreateElementInterface} {
+   *     tag,
+   *     textContent,
+   *     attributes = {},
+   *     children = [],
+   *   }
+   * @returns {HTMLElement}
+   * @memberof CreateElementFactory
+   */
   public static addElement({
     tag,
     textContent,
@@ -18,7 +31,15 @@ export class CreateElementFactory {
 
     return newHtmlElement;
   }
-
+  /**
+   *
+   *
+   * @private
+   * @static
+   * @param {Array<CreateElementInterface>} children
+   * @param {HTMLElement} htmlElement
+   * @memberof CreateElementFactory
+   */
   private static addChildrenElement(
     children: Array<CreateElementInterface>,
     htmlElement: HTMLElement,
@@ -40,7 +61,18 @@ export class CreateElementFactory {
           });
       });
   }
-
+  /**
+   *
+   *
+   * @private
+   * @static
+   * @param {GetChildrenInterface} {
+   *     htmlElement,
+   *     childrenHtmlElement,
+   *     childrenValues,
+   *   }
+   * @memberof CreateElementFactory
+   */
   private static getChildrenElement({
     htmlElement,
     childrenHtmlElement,
@@ -52,7 +84,15 @@ export class CreateElementFactory {
 
     htmlElement.append(childrenHtmlElement);
   }
-
+  /**
+   *
+   *
+   * @private
+   * @static
+   * @param {HTMLElement} htmlElement
+   * @param {object} attributes
+   * @memberof CreateElementFactory
+   */
   private static addAttributesElement(htmlElement: HTMLElement, attributes: object): void {
     const hasAttributesElement = Object.keys(attributes).length;
     if (hasAttributesElement) {
@@ -61,7 +101,15 @@ export class CreateElementFactory {
       });
     }
   }
-
+  /**
+   *
+   *
+   * @private
+   * @static
+   * @param {string} tag
+   * @returns {HTMLElement}
+   * @memberof CreateElementFactory
+   */
   private static addHtmlElement(tag: string): HTMLElement {
     return document.createElement(tag);
   }

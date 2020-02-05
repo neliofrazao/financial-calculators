@@ -1,5 +1,13 @@
 export class MoneyFormatter {
-  public static format(value: number) {
+  /**
+   *
+   *
+   * @static
+   * @param {number} value
+   * @returns {string}
+   * @memberof MoneyFormatter
+   */
+  public static format(value: number): string {
     const formatter = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
