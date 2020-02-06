@@ -74,7 +74,7 @@ export class ReceiptsForm {
    * @param {Array<object>} receiptsListValue
    * @memberof ReceiptsForm
    */
-  private createReceiptsList(receiptsListValue: Array<object>): void {
+  private createReceiptsList(receiptsListValue: object): void {
     const containerReceipts = document.getElementById('container-receipts');
     const createReceiptsList = this.receiptsList.getReceiptsList(receiptsListValue);
 

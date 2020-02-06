@@ -1,5 +1,5 @@
 import { CreateElementFactory, MoneyFormatter } from '../../utils';
-export class ReceiptsListItems {
+export class ReceiptsItemsList {
   /**
    *
    *

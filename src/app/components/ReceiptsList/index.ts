@@ -1,10 +1,10 @@
 import { CreateElementFactory } from '../../utils';
-import { ReceiptsListItems } from './ReceiptsListItems';
+import { ReceiptsItemsList } from './ReceiptsItemsList';
 export class ReceiptsList {
-  private receiptsListItems: ReceiptsListItems;
+  private receiptsItemsList: ReceiptsItemsList;
 
   constructor() {
-    this.receiptsListItems = new ReceiptsListItems();
+    this.receiptsItemsList = new ReceiptsItemsList();
   }
   /**
    *
@@ -12,12 +12,12 @@ export class ReceiptsList {
    * @returns {HTMLElement}
    * @memberof ReceiptsList
    */
-  public getReceiptsList(dataListValue: Array<object>): HTMLElement {
+  public getReceiptsList(dataListValue: object): HTMLElement {
     const currentReceipts = document.getElementById('receipts');
     const listOfValues = this.createList(dataListValue);
-    const noValuesToReceiveinfo = this.receiptsListItems.createValuesToReceiveInfo();
+    const noValuesToReceiveinfo = this.receiptsItemsList.createValuesToReceiveInfo();
     const getReceiptsListValues = (Object.values(dataListValue) as unknown) as Array<number>;
-    const IsReceiptsValuesGreaterThanZero = getReceiptsListValues.every(listValue => listValue > 0);
+    const IsReceiptsValuesGreaterThanZero = getReceiptsListValues.some(listValue => listValue > 0);
     const receiptsValues = !IsReceiptsValuesGreaterThanZero ? noValuesToReceiveinfo : listOfValues;
 
     if (currentReceipts) currentReceipts.remove();
@@ -31,7 +31,7 @@ export class ReceiptsList {
    * @returns {HTMLElement}
    * @memberof ReceiptsList
    */
-  private createList(dataListValue: Array<object>): HTMLElement {
+  private createList(dataListValue: object): HTMLElement {
     const list = CreateElementFactory.addElement({
       tag: 'ul',
       attributes: {
@@ -50,7 +50,7 @@ export class ReceiptsList {
    * @returns {Array<object>}
    * @memberof ReceiptsList
    */
-  private formatItemsList(itemValues: Array<object>) {
+  private formatItemsList(itemValues: object) {
     const getItemValues = Object.values(itemValues);
     const formatItemValues = [
       {
@@ -71,6 +71,6 @@ export class ReceiptsList {
       },
     ];
 
-    return this.receiptsListItems.createListItem(formatItemValues);
+    return this.receiptsItemsList.createListItem(formatItemValues);
   }
 }
