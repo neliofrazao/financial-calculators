@@ -1,4 +1,4 @@
-import { ReceiptsList } from '../app/components/ReceiptsList/ReceiptsList';
+import { ReceiptsList } from '../app/components/ReceiptsList/index';
 
 describe('test ReceiptsList', () => {
   const newList = new ReceiptsList();

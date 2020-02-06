@@ -1,5 +1,5 @@
 import { HttpService } from '../../utils';
-import { ReceiptsList } from '../ReceiptsList/ReceiptsList';
+import { ReceiptsList } from '../ReceiptsList';
 import { Loading } from '../../shared/Loading';
 import { Alert } from '../../shared/Alert';
 
