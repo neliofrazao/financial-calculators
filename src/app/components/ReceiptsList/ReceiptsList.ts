@@ -50,9 +50,8 @@ export class ReceiptsList {
    * @returns {Array<object>}
    * @memberof ReceiptsList
    */
-  private formatItemsList(itemValues: Array<object>): Array<object> {
+  private formatItemsList(itemValues: Array<object>) {
     const getItemValues = Object.values(itemValues);
-
     const formatItemValues = [
       {
         date: 'Amanhã',

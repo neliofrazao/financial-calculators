@@ -25,7 +25,7 @@ export class ReceiptsListItems {
    * @returns {Array<object>}
    * @memberof ReceiptsListItems
    */
-  public createListItem(itemValues: Array<object>): Array<object> {
+  public createListItem(itemValues: Array<object>) {
     const listItems = itemValues.map((listItem: { date: string; value: number }) => {
       const mountReceiptsListItems = {
         tag: 'li',
