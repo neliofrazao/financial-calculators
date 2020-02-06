@@ -1,15 +1,37 @@
-import { CreateElementFactory, MoneyFormatter } from '../../utils';
+import { CreateElementFactory } from '../../utils';
+import { ReceiptsListItems } from './ReceiptsListItems';
 export class ReceiptsList {
+  private receiptsListItems: ReceiptsListItems;
+
+  constructor() {
+    this.receiptsListItems = new ReceiptsListItems();
+  }
   /**
-   *
    *
    * @param {Array<object>} dataListValue
    * @returns {HTMLElement}
    * @memberof ReceiptsList
    */
   public getReceiptsList(dataListValue: Array<object>): HTMLElement {
-    const currentAlert = document.getElementById('receipts');
-    if (currentAlert) currentAlert.remove();
+    const currentReceipts = document.getElementById('receipts');
+    const listOfValues = this.createList(dataListValue);
+    const noValuesToReceiveinfo = this.receiptsListItems.createValuesToReceiveInfo();
+    const getReceiptsListValues = (Object.values(dataListValue) as unknown) as Array<number>;
+    const IsReceiptsValuesGreaterThanZero = getReceiptsListValues.every(listValue => listValue > 0);
+    const receiptsValues = !IsReceiptsValuesGreaterThanZero ? noValuesToReceiveinfo : listOfValues;
+
+    if (currentReceipts) currentReceipts.remove();
+
+    return receiptsValues;
+  }
+  /**
+   *
+   * @private
+   * @param {Array<object>} dataListValue
+   * @returns {HTMLElement}
+   * @memberof ReceiptsList
+   */
+  private createList(dataListValue: Array<object>): HTMLElement {
     const list = CreateElementFactory.addElement({
       tag: 'ul',
       attributes: {
@@ -23,40 +45,12 @@ export class ReceiptsList {
   }
   /**
    *
-   *
    * @private
    * @param {Array<object>} itemValues
-   * @returns
+   * @returns {Array<object>}
    * @memberof ReceiptsList
    */
-  private getListItemValues(itemValues: Array<object>) {
-    const listItems = itemValues.map((listItem: { date: string; value: number }) => {
-      const mountReceiptsListItems = {
-        tag: 'li',
-        textContent: listItem.date,
-        children: [
-          {
-            tag: 'span',
-            textContent: MoneyFormatter.format(listItem.value),
-            attributes: {
-              class: 'receipts-list-value',
-            },
-          },
-        ],
-      };
-      return mountReceiptsListItems;
-    });
-    return listItems;
-  }
-  /**
-   *
-   *
-   * @private
-   * @param {Array<object>} itemValues
-   * @returns
-   * @memberof ReceiptsList
-   */
-  private formatItemsList(itemValues: Array<object>) {
+  private formatItemsList(itemValues: Array<object>): Array<object> {
     const getItemValues = Object.values(itemValues);
 
     const formatItemValues = [
@@ -78,6 +72,6 @@ export class ReceiptsList {
       },
     ];
 
-    return this.getListItemValues(formatItemValues);
+    return this.receiptsListItems.createListItem(formatItemValues);
   }
 }
