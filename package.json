@@ -44,6 +44,8 @@
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
     "@testing-library/jest-dom": "^5.1.1",
+    "@types/cleave.js": "^1.4.1",
+    "@types/fetch-mock": "^7.3.2",
     "@types/jest": "^25.1.1",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
@@ -82,9 +84,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "@types/cleave.js": "^1.4.1",
-    "@types/fetch-mock": "^7.3.2",
-    "cleave.js": "^1.5.0",
+    "cleave.js": "1.5.0",
     "express": "^4.17.1"
   }
 }
