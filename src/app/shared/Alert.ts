@@ -81,7 +81,7 @@ export class Alert {
   private handleTimeoutCloseAlert(): void {
     setTimeout(() => {
       const getAlert = document.getElementById('alert');
-      getAlert.remove();
+      if (getAlert) getAlert.remove();
     }, 2500);
   }
   /**

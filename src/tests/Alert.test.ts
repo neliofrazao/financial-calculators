@@ -1,6 +1,8 @@
 import { Alert } from '../app/shared/Alert';
 
-jest.useFakeTimers();
+beforeEach(() => {
+  jest.useFakeTimers();
+});
 
 describe('test Alert', () => {
   const alert = new Alert();
@@ -32,5 +34,14 @@ describe('test Alert', () => {
 
     expect(getAlertSeverity).toEqual('alert-standard-warning');
     expect(getAlert.innerHTML).toContain('warning alert');
+  });
+
+  test('shoud close alert after 2.5s', () => {
+    const alertMessage = alert.warning('warning alert');
+    document.body.appendChild(alertMessage);
+    const getAlert = document.getElementById('alert');
+
+    expect(getAlert).toBeDefined();
+    jest.advanceTimersByTime(5000);
   });
 });
