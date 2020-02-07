@@ -8,7 +8,7 @@ export class ReceiptsList {
   }
   /**
    *
-   * @param {Array<object>} dataListValue
+   * @param {object} dataListValue
    * @returns {HTMLElement}
    * @memberof ReceiptsList
    */
@@ -27,7 +27,7 @@ export class ReceiptsList {
   /**
    *
    * @private
-   * @param {Array<object>} dataListValue
+   * @param {object} dataListValue
    * @returns {HTMLElement}
    * @memberof ReceiptsList
    */
