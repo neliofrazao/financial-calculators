@@ -16,7 +16,7 @@ export class ReceiptsForm {
    *
    * @memberof ReceiptsForm
    */
-  public init() {
+  public init(): void {
     this.handlePostData();
   }
 
