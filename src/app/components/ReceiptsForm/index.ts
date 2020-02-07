@@ -33,23 +33,37 @@ export class ReceiptsForm {
       event.preventDefault();
       const getForm: any = document.getElementById('form-receipts');
       const getAmount: any = document.getElementById('amount');
-      const getInstallments: any = document.getElementById('installments');
-      const getMdr: any = document.getElementById('mdr');
-      const formatRequest = {
-        amount: getAmount.value.replace(/[^0-9]+/g, ''),
-        installments: getInstallments.value,
-        mdr: getMdr.value,
-      };
+      const requestFormated = this.formatRequest();
+      const isAmountEmpty = getAmount.value.length <= 3;
+      const isValidityForm = !getForm.checkValidity();
 
-      if (!getForm.checkValidity()) {
+      if (isValidityForm && isAmountEmpty) {
         this.alertMessage.error('Por favor, preencha os itens corretamente!');
         return false;
       }
 
-      this.fetchReceipts(formatRequest);
+      this.fetchReceipts(requestFormated);
     });
 
     return getDataReceipts;
+  }
+  /**
+   *
+   * @private
+   * @returns {object}
+   * @memberof ReceiptsForm
+   */
+  private formatRequest(): object {
+    const getAmount: any = document.getElementById('amount');
+    const getInstallments: any = document.getElementById('installments');
+    const getMdr: any = document.getElementById('mdr');
+    const formatRequest = {
+      amount: getAmount.value.replace(/[^0-9]+/g, ''),
+      installments: getInstallments.value,
+      mdr: getMdr.value,
+    };
+
+    return formatRequest;
   }
 
   /**
