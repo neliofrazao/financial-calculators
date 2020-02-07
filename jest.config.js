@@ -5,9 +5,11 @@ module.exports = {
       importHelpers: true,
     },
   },
+  'verbose': true,
+  'testURL': 'http://localhost/',
   preset: 'ts-jest',
   'automock': false,
-  testEnvironment: 'node',
+  testEnvironment: 'jest-environment-jsdom',
   'setupFilesAfterEnv': ['./src/tests/setup.js'],
   collectCoverageFrom: [
     '**/src/**/*.ts',
