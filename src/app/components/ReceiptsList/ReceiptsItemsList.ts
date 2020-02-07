@@ -20,10 +20,9 @@ export class ReceiptsItemsList {
   }
   /**
    *
-   *
    * @param {Array<object>} itemValues
-   * @returns {Array<object>}
-   * @memberof ReceiptsListItems
+   * @returns
+   * @memberof ReceiptsItemsList
    */
   public createListItem(itemValues: Array<object>) {
     const listItems = itemValues.map((listItem: { date: string; value: number }) => {

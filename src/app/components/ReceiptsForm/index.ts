@@ -35,10 +35,14 @@ export class ReceiptsForm {
       const getAmount: any = document.getElementById('amount');
       const requestFormated = this.formatRequest();
       const isAmountEmpty = getAmount.value.length <= 3;
-      const isValidityForm = !getForm.checkValidity();
+      const isFormChecked = !getForm.checkValidity();
+      const isValidForm = [isAmountEmpty, isFormChecked].every(
+        formValidity => formValidity === false,
+      );
 
-      if (isValidityForm && isAmountEmpty) {
+      if (!isValidForm) {
         this.alertMessage.error('Por favor, preencha os itens corretamente!');
+
         return false;
       }
 
