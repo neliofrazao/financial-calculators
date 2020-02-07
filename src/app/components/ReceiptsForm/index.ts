@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { HttpService, MoneyInput } from '../../utils';
+import { HttpService } from '../../utils';
 import { ReceiptsList } from '../ReceiptsList';
 import { Loading } from '../../shared/Loading';
 import { Alert } from '../../shared/Alert';
@@ -18,7 +18,6 @@ export class ReceiptsForm {
    */
   public init() {
     this.handlePostData();
-    MoneyInput.format('#amount');
   }
 
   /**
