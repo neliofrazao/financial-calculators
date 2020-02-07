@@ -1,4 +1,5 @@
-import { HttpService } from '../../utils';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { HttpService, MoneyInput } from '../../utils';
 import { ReceiptsList } from '../ReceiptsList';
 import { Loading } from '../../shared/Loading';
 import { Alert } from '../../shared/Alert';
@@ -6,12 +7,10 @@ import { Alert } from '../../shared/Alert';
 export class ReceiptsForm {
   private alertMessage: Alert;
   private receiptsList: ReceiptsList;
-  private getForm: any;
 
   constructor() {
     this.alertMessage = new Alert();
     this.receiptsList = new ReceiptsList();
-    this.getForm = document.getElementById('form-receipts');
   }
   /**
    *
@@ -19,7 +18,9 @@ export class ReceiptsForm {
    */
   public init() {
     this.handlePostData();
+    MoneyInput.format('#amount');
   }
+
   /**
    *
    * @private
@@ -30,15 +31,17 @@ export class ReceiptsForm {
 
     const getDataReceipts = formReceipts.addEventListener('submit', event => {
       event.preventDefault();
-      const form = event.target as HTMLFormElement;
-      const formData = new FormData(form);
+      const getForm: any = document.getElementById('form-receipts');
+      const getAmount: any = document.getElementById('amount');
+      const getInstallments: any = document.getElementById('installments');
+      const getMdr: any = document.getElementById('mdr');
       const formatRequest = {
-        amount: formData.get('amount'),
-        installments: formData.get('installments'),
-        mdr: formData.get('mdr'),
+        amount: getAmount.value.replace(/[^0-9]+/g, ''),
+        installments: getInstallments.value,
+        mdr: getMdr.value,
       };
 
-      if (!this.getForm.checkValidity()) {
+      if (!getForm.checkValidity()) {
         this.alertMessage.error('Por favor, preencha os itens corretamente!');
         return false;
       }
@@ -48,6 +51,7 @@ export class ReceiptsForm {
 
     return getDataReceipts;
   }
+
   /**
    *
    * @private
