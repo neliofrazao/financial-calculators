@@ -9,7 +9,7 @@ export class ReceiptsItemsList {
   public createValuesToReceiveInfo(): HTMLElement {
     const valuesToReceiveInfo = CreateElementFactory.addElement({
       tag: 'p',
-      textContent: 'Você não possui valores a receber',
+      textContent: 'Você não possui valores a receber!',
       attributes: {
         id: 'receipts',
         class: 'receipts-info',

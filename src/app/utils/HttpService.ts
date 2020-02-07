@@ -29,13 +29,12 @@ export class HttpService {
             credentials: 'include',
           },
         });
-        clearInterval(getSlowRequest);
         HttpService.handleErrors(response);
-
         return response;
       } catch (error) {
-        clearInterval(getSlowRequest);
         HttpService.handleStatusCodeMenssage(error.message);
+      } finally {
+        clearInterval(getSlowRequest);
       }
     }
   }
