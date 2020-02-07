@@ -22,13 +22,23 @@ describe('Get receipts result ', () => {
 
       cy.get('#alert').should('contain', 'Por favor, preencha os itens corretamente');
     });
+
     it('Should print error message for missing data', () => {
       cy.visit('http://localhost:8080/');
       cy.get('#amount').type('12340');
       cy.get('#installments').type('14');
       cy.get('#send').click();
-
+      cy.wait(500);
       cy.get('#alert').should('contain', 'Por favor, preencha os itens corretamente');
+    });
+
+    it('Should print no values to recive mensage', () => {
+      cy.visit('http://localhost:8080/');
+      cy.get('#amount').type('12340');
+      cy.get('#installments').type('5');
+      cy.get('#mdr').type('1');
+      cy.get('#send').click();
+      cy.get('#receipts').should('contain', 'Você não possui valores a receber!');
     });
   });
 });
