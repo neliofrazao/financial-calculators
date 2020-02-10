@@ -17,7 +17,9 @@
 
 * Run `npm run build` to build for production
 
-* Run `npm start` to start the [Calculator](http://localhost:8080/) server
+* Run `npm start` to start the server(need run build or build:dev first )
+
+* Run `npm start:dev` to start [Calculator](http://localhost:8080/) in development mode
 
 * Run `npm run lint` to check code pattern
 
