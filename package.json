@@ -10,7 +10,7 @@
   "scripts": {
     "build:dev": "rm -rf dist && webpack --mode development --config webpack.server.config.js && webpack --mode development --config webpack.dev.js",
     "build": "rm -rf dist && webpack --mode production --config webpack.server.config.js && webpack --mode production --config webpack.prod.js",
-    "start": "node ./dist/server.js",
+    "start": "npm run build:dev && node ./dist/server.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "cover": "npm run test -- --coverage --watchAll=false",
